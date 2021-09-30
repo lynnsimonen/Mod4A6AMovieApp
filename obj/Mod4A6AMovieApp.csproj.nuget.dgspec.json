@@ -1,0 +1,70 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj": {}
+  },
+  "projects": {
+    "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
+        "projectName": "Mod4A6AMovieApp",
+        "projectPath": "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
+        "packagesPath": "C:\\Users\\lynns\\.nuget\\packages\\",
+        "outputPath": "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lynns\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[27.1.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

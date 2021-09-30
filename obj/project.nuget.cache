@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Rbmtw8l/dwLAGExXpCieoVtQ6IV0VdgttGYljxp/ZsZA4GlmmpYcnbeFZFzznmz3NIMvTotip/26x3FRYoYaTg==",
+  "success": true,
+  "projectFilePath": "D:\\2021_Fall_dotNet\\Git_Repos\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lynns\\.nuget\\packages\\csvhelper\\27.1.1\\csvhelper.27.1.1.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\nlog\\4.7.11\\nlog.4.7.11.nupkg.sha512"
+  ],
+  "logs": []
+}
