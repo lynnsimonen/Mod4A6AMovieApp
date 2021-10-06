@@ -37,39 +37,26 @@ namespace Mod4A6AMovieApp
         public void GenreListUtility()
         {
             string[] genre = new string[6];
-            //index of genre arr set at 0
             int j = 0;
-            //create variable for another genre
             string moreGenre = "";
             do
             {
-                // prompt for genre
                 Console.WriteLine("Enter movie genre: ");
-                // save the genre into array
                 genre[j] = Console.ReadLine();
-                // increment the array index
                 j++;
-                //ask user whether there is another genre
                 Console.WriteLine("Is there another genre for this movie (Y/N)?");
-                // input whether another genre
                 moreGenre = Console.ReadLine().ToUpper();
-                // while another genre is "Y", continue loop
             } while (moreGenre == "Y");
-            //create a string to hold all genres (starts empty)
             string genres = "";
-            //if more than one genres, do loop
             if (j >= 1)
             {
-                //loop through all except last genre listed and put pipe between them 
                 for (int k = 0; k < j - 1; k++)
                 {
                     genres += genre[k] + "|";
                 }
-                //cap string with last name listed
                 genres = genres + genre[j - 1];
             }
             else
-            //if only one genre, no need for pipes 
             {
                 genres = genre[0];
             }
@@ -78,7 +65,7 @@ namespace Mod4A6AMovieApp
 
         public override string ToString() 
         {
-            return MovieID + " " + MovieTitle + " " + Genre;
+            return String.Format("{0,8}  {1,-60}  {2,-45}",MovieID, MovieTitle, Genre);
         }
 
     }

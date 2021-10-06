@@ -16,41 +16,12 @@ namespace Mod4A6AMovieApp
 
         static void Main(string[] args)
         {
-
-            // //CsvHelper Errors: CS8803, CS1022
-            // public static System.Globalization.CultureInfo InvariantCulture { get; }
-            
-            // using (var streamReader = new StreamReader(@"D:\2021_Fall_dotNet\Git_Repos\Mod4A6AMovieApp\Data.movies.csv")) 
-            //     {
-            //         using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
-            //         {
-            //             var records = csvReader.GetRecords<dynamic>().ToList;
-            //         }
-            //     }
-
-            //NLOG HAS COMPILE ERROR CS1529, CS0234--  NEED TO FIX THIS so same as last computer
-            //Setup Logger...
-            //var logData = NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
-            //Initial Logging...
-            //logData.Info("Program started");
-
-            string movieFile = "movies.csv";
-
-            movieFile = $"{ Environment.CurrentDirectory}/data/movies.csv";
-            StreamReader sr = new StreamReader(movieFile);
-
-            MovieManager movieManager = new MovieManager();
-            MovieListUtility movieListUtility = new MovieListUtility();
-
-            Movie movie = new Movie();
             string libraryOption = "";
             do
             {
-                Console.WriteLine("");
-                Console.WriteLine("WELCOME TO THE MOVIE LIBRARY.  HOW CAN WE HELP YOU?");
-                Console.WriteLine("ADD a movie");
-                Console.WriteLine("LIST all movies");
-                Console.WriteLine("QUIT program");
+                Console.WriteLine("\nWELCOME TO THE MOVIE LIBRARY.  HOW CAN WE HELP YOU?"
+                +"\nADD a movie to the movie library"
+                + "\nLIST all items in differnt media categories \nQUIT program");
 
                 try
                 {
@@ -64,6 +35,14 @@ namespace Mod4A6AMovieApp
                     //logData.Info(e.Message);
                     //logData.Info(e.StackTrace);
                 }
+
+                string movieFile = "movies.csv";
+                movieFile = $"{ Environment.CurrentDirectory}/data/movies.csv";
+                StreamReader sr = new StreamReader(movieFile);
+                MovieManager movieManager = new MovieManager();
+                MovieListUtility movieListUtility = new MovieListUtility();
+                Movie movie = new Movie();
+
                 string newMovieTitle = "";
                 string newMovie = "";
                 
@@ -107,10 +86,9 @@ namespace Mod4A6AMovieApp
 
                         if (movieListmovie.Equals(newMovieTitle))
                         {
-                            Console.WriteLine(newMovie + " is already in the Movie Library.");
-                            Console.WriteLine(movieManager.Movies[i].MovieID);
-                            Console.WriteLine(movieManager.Movies[i].MovieTitle);
-                            Console.WriteLine(movieManager.Movies[i].Genre);
+                            Console.WriteLine(newMovie + " is already in the Movie Library." 
+                            + "\n" + movieManager.Movies[i].MovieID + "\n" + movieManager.Movies[i].MovieTitle
+                            + "\n" + movieManager.Movies[i].Genre);
                             dup = true;
                             break;
                         }
@@ -137,12 +115,12 @@ namespace Mod4A6AMovieApp
                     int start = 0;
                     do
                     {
-                        for (int i = start; i < (start + 25); i++)
+                        for (int i = start; i < (start + 5); i++)
                         {
                           Console.WriteLine(movieManager.Movies[i]);
                         }
-                        start += 25;
-                        Console.WriteLine("Would you like to have more movies listed? Y/N");
+                        start += 5;
+                        Console.WriteLine("\nWould you like to have more movies listed? Y/N");
                         listMore = Console.ReadLine().ToUpper();
                     } while (!(listMore == "N"));
 
