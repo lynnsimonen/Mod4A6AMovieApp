@@ -27,7 +27,7 @@ namespace Mod4A6AMovieApp
         public Movie()
         {
         }
-        
+
         public Movie(int movieID, string movieTitle)
         {
             this.MovieID = movieID;
@@ -65,7 +65,7 @@ namespace Mod4A6AMovieApp
 
         public override string ToString() 
         {
-            return String.Format("{0,8}  {1,-60}  {2,-45}",MovieID, MovieTitle, Genre);
+            return String.Format("{0,8}  {1,-65}  {2,-45}",MovieID, MovieTitle, Genre);
         }
 
     }
