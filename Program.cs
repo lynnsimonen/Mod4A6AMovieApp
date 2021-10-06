@@ -111,20 +111,36 @@ namespace Mod4A6AMovieApp
 
                 else if (libraryOption.ToUpper() == "LIST")
                 {
+                    string mediaChoice = "";
+                    string media = ""; 
+                    try
+                    {
+                        Console.WriteLine("\nWhich media type would you like listed? SHOW, VIDEO or MOVIE:   ");
+                        mediaChoice = Console.ReadLine().ToUpper(); 
+                    }
+                    catch (System.Exception)
+                    {
+                        //if mediaChoice doesn't equal show, video or movie, exception brings to beginning (or while loop?)
+                        throw;
+                    }      
+                                          
+                    media = (mediaChoice == "SHOW") ? "shows.csv" : (media = (mediaChoice == "VIDEO") ? "videos.csv" : "movies.csv");
+                    //--------------------------------------------------------------
                     string listMore = "";
                     int start = 0;
-                    do
+                    if (mediaChoice == "MOVIE")
                     {
-                        for (int i = start; i < (start + 5); i++)
+                        do
                         {
-                          Console.WriteLine(movieManager.Movies[i]);
-                        }
-                        start += 5;
-                        Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-                        listMore = Console.ReadLine().ToUpper();
-                    } while (!(listMore == "N"));
-
-                    Console.WriteLine("");
+                            for (int i = start; i < (start + 5); i++)
+                            {
+                            Console.WriteLine(movieManager.Movies[i]);
+                            }
+                            start += 5;
+                            Console.WriteLine("\nWould you like to have more movies listed? Y/N");
+                            listMore = Console.ReadLine().ToUpper();
+                        } while (!(listMore == "N"));
+                    }
                 }
             } while (!(libraryOption.ToUpper() == "QUIT"));
         }

@@ -26,8 +26,8 @@ namespace Mod4A6AMovieApp
 
         public Movie()
         {
-
         }
+        
         public Movie(int movieID, string movieTitle)
         {
             this.MovieID = movieID;
