@@ -34,11 +34,19 @@ namespace Mod4A6AMovieApp
             string moreGenre = "";
             do
             {
+                string oops1 = "";
+                do{
                 Console.WriteLine("Enter movie genre: ");
                 genre[j] = Console.ReadLine();
+                oops1 = (genre[j]!="") ? "Y" : "N";
+                } while (oops1 != "Y");
                 j++;
+                string oops2 = "";
+                do{
                 Console.WriteLine("Is there another genre for this movie (Y/N)?");
                 moreGenre = Console.ReadLine().ToUpper();
+                oops2 = (moreGenre == "Y" || moreGenre == "N") ? "Y" : "N";
+                } while (oops2 != "Y");
             } while (moreGenre == "Y");
             string genres = "";
             if (j >= 1)

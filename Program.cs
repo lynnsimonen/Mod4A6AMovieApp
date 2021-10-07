@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CsvHelper;
 using System.Globalization;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Mod4A6AMovieApp
 {
@@ -19,20 +21,15 @@ namespace Mod4A6AMovieApp
             string libraryOption = "";
             do
             {
+                string oops = "";
+                do {
                 Console.WriteLine("\nWELCOME TO THE MOVIE LIBRARY.  HOW CAN WE HELP YOU?"
                 +"\nADD a movie to the movie library"
-                + "\nLIST all items in differnt media categories \nQUIT program");
-
-                try
-                {
-                    libraryOption = Console.ReadLine().ToUpper();
-                    //logData.Info("Data: {0}", libraryOption);
-                }
-                catch (Exception e)     //ADD EXCEPTION LIBRARY!!!  WATCH TIM COREY VIDEO AGAIN!
-                {
-                    Console.WriteLine(e.Message);
-                    //logData.Info(e.StackTrace);
-                }
+                + "\nLIST all items in differnt media categories \nQUIT program");                
+                libraryOption = Console.ReadLine().ToUpper();
+                //logData.Info("Data: {0}", libraryOption);
+                oops = (libraryOption == "ADD" || libraryOption == "QUIT" ||libraryOption == "LIST") ? "Y" : "N";
+                } while (oops != "Y");              
 
                 MediaManager mediaManager = new MediaManager();
                 MovieListUtility movieListUtility = new MovieListUtility();
@@ -82,16 +79,23 @@ namespace Mod4A6AMovieApp
                     int newID = (mediaManager.Movies[mediaManager.Movies.Count-1].Id + 1);
                     try
                     {
+                        string oops2 = "";
+                        string oops3 = "";
+                        do {
                         Console.Write("Name of Movie to Add: ");
                         newMovie = Console.ReadLine();
-                        Console.Write("\nYear Movie was Released: ");
+                        oops2 = (newMovie!="") ? "Y" : "N";
+                        Console.Write("\nYear Movie was Released (as YYYY): ");
                         string movieRelease = Console.ReadLine();
+                        int theYear = Convert.ToInt32(movieRelease);
+                        //OOPS3 NEEDS HELP
+                        oops3 = ((theYear > 1906) || (theYear < 2022)) ? "Y" : "N";
                         newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");
+                        } while ((oops2 != "Y") || (oops3 != "Y"));      
                     } 
                     catch (Exception e)
                     {
-                        Console.WriteLine(e.Message);  //let them try again with correct into
-                        //logData.Info(e.StackTrace);
+                        //Log(e);
                     }
 
                     for (int i = 0; i < mediaManager.Movies.Count - 1; i++)
@@ -107,17 +111,26 @@ namespace Mod4A6AMovieApp
                         
                     }
                     if (!(dup))
-                    {                       
-                       movie = new Movie(newID, newMovieTitle);
-                       movie.ListUtility();
-                       mediaManager.Movies.Add(movie);
-                       System.Console.WriteLine($"30 - {mediaManager.Movies[9125]}");   //TEST   Works! :)
-                       //HELP HERE!!!
-                       //StreamWriter sw = new StreamWriter(($"{ Environment.CurrentDirectory}/data/movies.csv"), true);
-                       //sw.WriteLine($"{newID}, {newMovie} ({movieRelease}), {movie.Genre}");   // Won't append
-                       //sw.Close();
-                       //logger.Info($"Movie {newID} added");
+                    {     
+                        StreamWriter sw = new StreamWriter(moviePath);
+                        try {    
+                        movie = new Movie(newID, newMovieTitle);
+                        movie.ListUtility();
+                        mediaManager.Movies.Add(movie);
+                        System.Console.WriteLine($"30 - {mediaManager.Movies[9125]}");   //TEST   Works! :)
+                        //HELP HERE!!!
+                        //sw.WriteLine($"{newID}, {newMovie} ({movieRelease}), {movie.Genre}");   // Won't append
+                        //logger.Info($"Movie {newID} added");
                         System.Console.WriteLine("\nYour movie has been added to the list.");
+                        }
+                        catch (Exception e)
+                        {
+                            //log(e);
+                        }
+                        finally
+                        {
+                            sw.Close();
+                        }
                     }
                 }
 
@@ -126,21 +139,15 @@ namespace Mod4A6AMovieApp
                 {
                     string mediaChoice = "";
                     string media = ""; 
-                    try
-                    {
+                        string oops4 = "";
+                        do {
                         Console.WriteLine("\nWhich media type would you like listed? SHOW, VIDEO or MOVIE:   ");
-                        mediaChoice = Console.ReadLine().ToUpper(); 
-                    }
-                    catch (System.Exception)
-                    {
-                        //if mediaChoice doesn't equal show, video or movie, exception brings to beginning (or while loop?)
-                        throw;
-                    }      
+                        mediaChoice = Console.ReadLine().ToUpper();
+                        oops4 = (mediaChoice == "SHOW" || mediaChoice == "VIDEO" || mediaChoice == "MOVIE") ? "Y" : "N";
+                         } while (oops4 != "Y") ;  
 
                     media = (mediaChoice == "SHOW") ? "shows.csv" : (media = (mediaChoice == "VIDEO") ? "videos.csv" : "movies.csv");
-                    //--------------------------------------------------------------
-                    // string listMore = "";
-                    // int start = 0;
+                    
                     if (mediaChoice == "MOVIE")
                     { 
                         string listMore = "";
@@ -152,8 +159,12 @@ namespace Mod4A6AMovieApp
                             Console.WriteLine(mediaManager.Movies[i]);
                             }
                             start += 5;
+                            string oops5 = "";
+                            do {
                             Console.WriteLine("\nWould you like to have more movies listed? Y/N");
                             listMore = Console.ReadLine().ToUpper();
+                            oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
+                            } while (oops5 != "Y");  
                         } while (!(listMore == "N"));
                     } else if (mediaChoice == "SHOW")
                     {

@@ -94,8 +94,12 @@ namespace Mod4A6AMovieApp
                     //Console.WriteLine(mediaManager.Videos[i]);
                 }
                 start += 5;
-                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-                listMore = Console.ReadLine().ToUpper();
+                string oops1 = "";
+                do {
+                    Console.WriteLine("\nWould you like to have more movies listed? Y/N");
+                    listMore = Console.ReadLine().ToUpper();
+                    oops1 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
+                } while (oops1 != "Y"); 
             } while (!(listMore == "N"));
 
         }

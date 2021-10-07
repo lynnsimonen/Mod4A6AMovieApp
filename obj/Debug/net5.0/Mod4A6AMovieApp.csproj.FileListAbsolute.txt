@@ -36,3 +36,8 @@ C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\obj\Debug\net5.0\ref\Mod4A6AMovieApp.dll
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.pdb
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.genruntimeconfig.cache
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.config
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.abstractions.dll
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.core.dll

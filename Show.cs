@@ -36,7 +36,8 @@ namespace Mod4A6AMovieApp
             this.Season = Season;
             this.Episode = Episode;
         }
-         public override void ReadCsv()
+
+        public override void ReadCsv()
         {
             MediaManager mediaManager = new MediaManager();
             Show show = new Show();
@@ -91,8 +92,12 @@ namespace Mod4A6AMovieApp
                 //Console.WriteLine(mediaManager.Shows[i]);
             }
             start += 5;
-            Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-            listMore = Console.ReadLine().ToUpper();
+            string oops1 = "";
+            do {
+                Console.WriteLine("\nWould you like to have more movies listed? Y/N");            
+                listMore = Console.ReadLine().ToUpper();
+                oops1 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
+            } while (oops1 != "Y"); 
         } while (!(listMore == "N"));
 
         }
