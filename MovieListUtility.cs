@@ -1,23 +1,29 @@
+using System.IO.Enumeration;
+using System.Net;
 using System;
+//using NLogBuilder;  --- NLog was getting Compiler Error CS0234
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using CsvHelper;
+using System.Globalization;
 
 namespace Mod4A6AMovieApp
 {
     public class MovieListUtility
     {
-        //TODO: return list of # of movies requested 1-100 and continue as requested
-        public void List(MovieManager movieManager)
+        public void List(MediaManager mediaManager)
         {
-            foreach (var movie in movieManager.Movies)
+            foreach (var movie in mediaManager.Movies)
             {
-                Console.WriteLine(movie.MovieTitle);
+                Console.WriteLine(movie.Title);
             }
         }
 
-        public int Count(MovieManager movieManager)
+        public int Count(MediaManager mediaManager)
         {
-            return movieManager.Movies.Count;
+            return mediaManager.Movies.Count;
         }
 
     }

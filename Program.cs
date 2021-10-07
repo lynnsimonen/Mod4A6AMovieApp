@@ -15,6 +15,7 @@ namespace Mod4A6AMovieApp
     {
         static void Main(string[] args)
         {
+           
             string libraryOption = "";
             do
             {
@@ -33,32 +34,32 @@ namespace Mod4A6AMovieApp
                     //logData.Info(e.StackTrace);
                 }
 
-                //READ MOVIE.CSV TO ARRAY
-                string movieFile = "movies.csv";
-                movieFile = $"{ Environment.CurrentDirectory}/data/{movieFile}";
-                StreamReader sr = new StreamReader(movieFile);
-                MovieManager movieManager = new MovieManager();
+                MediaManager mediaManager = new MediaManager();
                 MovieListUtility movieListUtility = new MovieListUtility();
                 Movie movie = new Movie();
-
+                string movieFile = "movies.csv";
+                string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
+                StreamReader sr = new StreamReader(moviePath);
+                
                 string newMovieTitle = "";
                 string newMovie = "";
                 
-                if (File.Exists(movieFile))
-                {                   
-                    sr = new StreamReader(movieFile);
+                if (File.Exists(moviePath))
+                {                 
+                    //USING STATEMENTS AREN'T WORKING FOR SR OR SW, SO NOT SURE IF THE PROCESSES ARE CLOSING...  
+                    sr = new StreamReader(moviePath);
                     while (!sr.EndOfStream)
                     {
                         string line = sr.ReadLine();
                         string[] arr = line.Split(',');
                         int quote = line.IndexOf('"');
 
-                        if ((quote == -1) && (arr[0] != "movieId"))
+                        if ((quote == -1) && (arr[0] != "iD"))
                         {
                             arr = line.Split(',');
-                            movie = new Movie(Int32.Parse(arr[0]), arr[1]);
+                            movie = new Movie(Int32.Parse(arr[0]), arr[1]);                            
                             movie.Genre = arr[2];
-                            movieManager.Movies.Add(movie);
+                            mediaManager.Movies.Add(movie);
                         }
                         else if (arr[0] != "movieId")
                         {
@@ -69,48 +70,43 @@ namespace Mod4A6AMovieApp
                             movie = new Movie(mID, mTitle);
                             line = line.Substring(quote + 2);
                             movie.Genre = line;
-                            movieManager.Movies.Add(movie);
+                            mediaManager.Movies.Add(movie);
                         }                       
                     }
-                     sr.Close();
-                     System.Console.WriteLine(movieManager.Movies[9124]);                                   //TEST
-                     System.Console.WriteLine(movieManager.Movies[movieManager.Movies.Count - 1].MovieID);  //TEST
                 }
+                sr.Close();
 
-                //ADD NEW MOVIE TO CSV FILE
                 if (libraryOption.ToUpper() == "ADD")
                 {
                     Console.Write("Name of Movie to Add: ");
                     newMovie = Console.ReadLine();
-                    int newID = (movieManager.Movies[movieManager.Movies.Count-1].MovieID + 1);
+                    int newID = (mediaManager.Movies[mediaManager.Movies.Count-1].Id + 1);
                     Console.Write("\nYear Movie was Released: ");
                     string movieRelease = Console.ReadLine();
                     newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");
                     Boolean dup = false;
 
-                    for (int i = 0; i < movieManager.Movies.Count - 1; i++)
+                    for (int i = 0; i < mediaManager.Movies.Count - 1; i++)
                     {
-                        string movieListmovie = movieManager.Movies[i].MovieTitle;
-
+                        string movieListmovie = mediaManager.Movies[i].Title;
                         if (movieListmovie.Equals(newMovieTitle))
                         {
                             Console.WriteLine("\n" + newMovie + " is already in the Movie Library." 
-                            + "\n\n" + movieManager.Movies[i]);
-                            dup = true;                           
+                            + "\n\n" + mediaManager.Movies[i]);
+                            dup = true;  
+                            break;                         
                         }
-                         break;
+                        
                     }
                     if (!(dup))
                     {                       
                        movie = new Movie(newID, newMovieTitle);
-                       movieManager.Movies.Add(movie);
-                       System.Console.WriteLine(new Movie(newID, newMovieTitle));    //TEST
-                       string newM = ($"{newID}, {newMovie} ({movieRelease})"); 
-
+                       movie.ListUtility();
+                        mediaManager.Movies.Add(movie);
+                        System.Console.WriteLine($"30 - {mediaManager.Movies[9125]}");   //TEST   Works! :)
                        StreamWriter sw = new StreamWriter(($"{ Environment.CurrentDirectory}/data/movies.csv"), true);
-                       sw.WriteLine($"{newID}, {newMovie} ({movieRelease})");
+                       sw.WriteLine($"{newID}, {newMovie} ({movieRelease}), {movie.Genre}");   // Won't append
                        sw.Close();
-                       movieManager.Movies.Add(movie);
                        //logger.Info($"Movie {newID} added");
                         System.Console.WriteLine("\nYour movie has been added to the list.");
                     }
@@ -134,17 +130,17 @@ namespace Mod4A6AMovieApp
 
                     media = (mediaChoice == "SHOW") ? "shows.csv" : (media = (mediaChoice == "VIDEO") ? "videos.csv" : "movies.csv");
                     //--------------------------------------------------------------
-                    string listMore = "";
-                    int start = 0;
+                    // string listMore = "";
+                    // int start = 0;
                     if (mediaChoice == "MOVIE")
-                    {
-                        // movies m = new movies();
-                        // m.MList();
+                    { 
+                        string listMore = "";
+                        int start = 0; 
                         do
                         {
                             for (int i = start; i < (start + 5); i++)
                             {
-                            Console.WriteLine(movieManager.Movies[i]);
+                            Console.WriteLine(mediaManager.Movies[i]);
                             }
                             start += 5;
                             Console.WriteLine("\nWould you like to have more movies listed? Y/N");
@@ -155,6 +151,8 @@ namespace Mod4A6AMovieApp
 
                     } else
                     {
+                        Video video = new Video();
+                        video.ReadCsv();
 
                     }
 
