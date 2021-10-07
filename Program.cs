@@ -28,7 +28,7 @@ namespace Mod4A6AMovieApp
                     libraryOption = Console.ReadLine().ToUpper();
                     //logData.Info("Data: {0}", libraryOption);
                 }
-                catch (Exception e)
+                catch (Exception e)     //ADD EXCEPTION LIBRARY!!!  WATCH TIM COREY VIDEO AGAIN!
                 {
                     Console.WriteLine(e.Message);
                     //logData.Info(e.StackTrace);
@@ -61,7 +61,7 @@ namespace Mod4A6AMovieApp
                             movie.Genre = arr[2];
                             mediaManager.Movies.Add(movie);
                         }
-                        else if (arr[0] != "movieId")
+                        else if (arr[0] != "iD")
                         {
                             int mID = Int32.Parse(line.Substring(0,quote-1));
                             line = line.Substring(quote + 1);
@@ -78,13 +78,21 @@ namespace Mod4A6AMovieApp
 
                 if (libraryOption.ToUpper() == "ADD")
                 {
-                    Console.Write("Name of Movie to Add: ");
-                    newMovie = Console.ReadLine();
-                    int newID = (mediaManager.Movies[mediaManager.Movies.Count-1].Id + 1);
-                    Console.Write("\nYear Movie was Released: ");
-                    string movieRelease = Console.ReadLine();
-                    newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");
                     Boolean dup = false;
+                    int newID = (mediaManager.Movies[mediaManager.Movies.Count-1].Id + 1);
+                    try
+                    {
+                        Console.Write("Name of Movie to Add: ");
+                        newMovie = Console.ReadLine();
+                        Console.Write("\nYear Movie was Released: ");
+                        string movieRelease = Console.ReadLine();
+                        newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");
+                    } 
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);  //let them try again with correct into
+                        //logData.Info(e.StackTrace);
+                    }
 
                     for (int i = 0; i < mediaManager.Movies.Count - 1; i++)
                     {
@@ -102,11 +110,12 @@ namespace Mod4A6AMovieApp
                     {                       
                        movie = new Movie(newID, newMovieTitle);
                        movie.ListUtility();
-                        mediaManager.Movies.Add(movie);
-                        System.Console.WriteLine($"30 - {mediaManager.Movies[9125]}");   //TEST   Works! :)
-                       StreamWriter sw = new StreamWriter(($"{ Environment.CurrentDirectory}/data/movies.csv"), true);
-                       sw.WriteLine($"{newID}, {newMovie} ({movieRelease}), {movie.Genre}");   // Won't append
-                       sw.Close();
+                       mediaManager.Movies.Add(movie);
+                       System.Console.WriteLine($"30 - {mediaManager.Movies[9125]}");   //TEST   Works! :)
+                       //HELP HERE!!!
+                       //StreamWriter sw = new StreamWriter(($"{ Environment.CurrentDirectory}/data/movies.csv"), true);
+                       //sw.WriteLine($"{newID}, {newMovie} ({movieRelease}), {movie.Genre}");   // Won't append
+                       //sw.Close();
                        //logger.Info($"Movie {newID} added");
                         System.Console.WriteLine("\nYour movie has been added to the list.");
                     }
@@ -148,14 +157,14 @@ namespace Mod4A6AMovieApp
                         } while (!(listMore == "N"));
                     } else if (mediaChoice == "SHOW")
                     {
-
-                    } else
+                        Show show = new Show();
+                        show.ReadCsv();
+                    } 
+                    else
                     {
                         Video video = new Video();
                         video.ReadCsv();
-
                     }
-
                 }
             } while (!(libraryOption.ToUpper() == "QUIT"));
         }

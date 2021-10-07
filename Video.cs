@@ -37,10 +37,9 @@ namespace Mod4A6AMovieApp
             this.Length = Length;
         }
 
-        public void ReadCsv()
+        public override void ReadCsv()
         {
             MediaManager mediaManager = new MediaManager();
-            
             Video video = new Video();
             string file = "videos.csv";
             string path = $"{Environment.CurrentDirectory}/data/{file}";
@@ -61,9 +60,10 @@ namespace Mod4A6AMovieApp
                     if ((quote == -1) && (arr[0] != "iD"))
                     {
                         arr = line.Split(',');
-                        video = new Video(Int32.Parse(arr[0]), arr[1], arr[2], Int32.Parse(arr[3]));                            
-                        string[] Regions = arr[4];
-                        Videos.Add(video);
+                        video = new Video(Int32.Parse(arr[0]), arr[1], arr[2], Int32.Parse(arr[3])); 
+                        //HOW READ AN ARRAY                           
+                        // string[] Regions = arr[4];
+                        // Videos.Add(video);
                     }
                     else if (arr[0] != "iD")
                     {
@@ -73,17 +73,30 @@ namespace Mod4A6AMovieApp
                         string vTitle = line.Substring(0,quote);
                         video = new Video(vID, vTitle);
                         line = line.Substring(quote + 2);
-                        string[] Regions = line;
-                        Videos.Add(video);
+                        //HOW READ AN ARRAY
+                        // string[] Regions = line;
+                        // Videos.Add(video);
                     }                       
                 }
             }
             sr.Close();
-
         }
 
         public override void Display()
         {
+            string listMore = "";
+            int start = 0; 
+            do
+            {
+                for (int i = start; i < (start + 5); i++)
+                {
+                    //HELP HERE!!!
+                    //Console.WriteLine(mediaManager.Videos[i]);
+                }
+                start += 5;
+                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
+                listMore = Console.ReadLine().ToUpper();
+            } while (!(listMore == "N"));
 
         }
 
