@@ -1,7 +1,8 @@
 ﻿using System.IO.Enumeration;
 using System.Net;
 using System;
-//using NLogBuilder;  --- NLog was getting Compiler Error CS0234
+using NLog;
+using NLog.Web;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace Mod4A6AMovieApp
     {
         static void Main(string[] args)
         {
-           
+            Logger log = LogManager.GetCurrentClassLogger();
+            log.Trace("Logging starts now");
+            
             string libraryOption = "";
             do
             {
@@ -60,6 +63,7 @@ namespace Mod4A6AMovieApp
                         }
                         else if (arr[0] != "iD")
                         {
+                            //Count '"' in line before this step:
                             int mID = Int32.Parse(line.Substring(0,quote-1));
                             line = line.Substring(quote + 1);
                             quote = line.IndexOf('"');
@@ -95,7 +99,8 @@ namespace Mod4A6AMovieApp
                     } 
                     catch (Exception e)
                     {
-                        //Log(e);
+                        log.Debug(e.StackTrace);
+                        Console.WriteLine("\nException Note: " + e.Message);
                     }
 
                     for (int i = 0; i < mediaManager.Movies.Count - 1; i++)
@@ -112,7 +117,7 @@ namespace Mod4A6AMovieApp
                     }
                     if (!(dup))
                     {     
-                        StreamWriter sw = new StreamWriter(moviePath);
+                        //StreamWriter sw = new StreamWriter(moviePath);
                         try {    
                         movie = new Movie(newID, newMovieTitle);
                         movie.ListUtility();
@@ -125,11 +130,12 @@ namespace Mod4A6AMovieApp
                         }
                         catch (Exception e)
                         {
-                            //log(e);
+                            log.Debut(e.StackTrace);
+                            Console.WriteLine("\nException Note: " + e.Message);
                         }
                         finally
                         {
-                            sw.Close();
+                            //sw.Close();
                         }
                     }
                 }
