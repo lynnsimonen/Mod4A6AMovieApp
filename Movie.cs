@@ -26,6 +26,11 @@ namespace Mod4A6AMovieApp
             this.Id = Id;
             this.Title = Title;
         }
+    
+        public override string ToString() 
+        {
+            return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, Genre);
+        }
 
         public void ListUtility()
         {
@@ -64,7 +69,7 @@ namespace Mod4A6AMovieApp
             this.Genre =  genres;
         }
 
-         public override void Display()
+        public override void Display()
         {   
             // List<Movie> Movies;   
             // string listMore = "";
@@ -81,9 +86,5 @@ namespace Mod4A6AMovieApp
             // } while (!(listMore == "N"));
         }
 
-        public override string ToString() 
-        {
-            return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, Genre);
-        }
     }    
 }

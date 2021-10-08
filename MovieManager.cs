@@ -10,16 +10,15 @@ using System.Globalization;
 
 namespace Mod4A6AMovieApp
 {
-    public abstract class MediaManager
+    public class MovieManager : MediaManager
     {
-        public List<Media> Medias { get; set; }       
-
-        //public MediaManager();
-
-        public bool IsDuplicate()
+        public List<Movie> Movies { get; set; }
+       
+        public MovieManager()
         {
-            return true;
+            Movies = new List<Movie>();
         }
+
     }
-    
+        
 }

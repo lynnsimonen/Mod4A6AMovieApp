@@ -13,17 +13,17 @@ namespace Mod4A6AMovieApp
 {
     public class MovieListUtility
     {
-        public void List(MediaManager mediaManager)
+        public void List(MovieManager movieManager)
         {
-            foreach (var movie in mediaManager.Movies)
+            foreach (var movie in movieManager.Movies)
             {
                 Console.WriteLine(movie.Title);
             }
         }
 
-        public int Count(MediaManager mediaManager)
+        public int Count(MovieManager movieManager)
         {
-            return mediaManager.Movies.Count;
+            return movieManager.Movies.Count;
         }
 
     }
