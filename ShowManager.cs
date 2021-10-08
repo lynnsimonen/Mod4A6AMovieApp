@@ -19,7 +19,7 @@ namespace Mod4A6AMovieApp
             Shows = new List<Show>();
         }
 
-        public void ReadCsv()
+        public override void ReadCsv()
         {
             //ShowManager showManager = new ShowManager();
             Show show = new Show();

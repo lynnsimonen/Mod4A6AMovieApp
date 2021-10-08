@@ -71,19 +71,24 @@ namespace Mod4A6AMovieApp
 
         public override void Display()
         {   
-            // List<Movie> Movies;   
-            // string listMore = "";
-            // int start = 0; 
-            // do
-            // {
-            //     for (int i = start; i < (start + 5); i++)
-            //     {
-            //     Console.WriteLine(mediaManager.Movies[i]);
-            //     }
-            //     start += 5;
-            //     Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-            //     listMore = Console.ReadLine().ToUpper();
-            // } while (!(listMore == "N"));
+            MovieManager movieManager = new MovieManager();
+            movieManager.ReadCsv();
+            string listMore = "";
+            int start = 0; 
+            do
+            {
+                for (int i = start; i < (start + 5); i++)
+                {
+                Console.WriteLine(movieManager.Movies[i]);
+                }
+                start += 5;
+                string oops5 = "";
+                do {
+                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
+                listMore = Console.ReadLine().ToUpper();
+                oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
+                } while (oops5 != "Y");  
+            } while (!(listMore == "N"));
         }
 
     }    

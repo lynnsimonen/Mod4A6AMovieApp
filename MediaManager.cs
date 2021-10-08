@@ -16,6 +16,11 @@ namespace Mod4A6AMovieApp
 
         //public MediaManager();
 
+        public virtual void ReadCsv()
+        {
+            
+        }
+
         public bool IsDuplicate()
         {
             return true;
