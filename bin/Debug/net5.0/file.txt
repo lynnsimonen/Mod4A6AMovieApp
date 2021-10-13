@@ -80,3 +80,9 @@
    at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
    at System.IO.StreamWriter..ctor(String path, Boolean append)
    at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\MovieManager.cs:line 115
+2021-10-13 14:12:30.7360|Debug|   at System.IO.FileStream.ValidateFileHandle(SafeFileHandle fileHandle)
+   at System.IO.FileStream.CreateFileOpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\MovieManager.cs:line 124

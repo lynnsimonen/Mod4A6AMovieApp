@@ -77,7 +77,6 @@ namespace Mod4A6AMovieApp
                     {
                         try 
                         {
-                            System.Console.WriteLine("LIST OF VIDEOS HERE");
                             VideoManager videoManager = new VideoManager();
                             videoManager.ReadCsv();
                             Video video = new Video();
