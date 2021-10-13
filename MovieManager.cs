@@ -112,7 +112,9 @@ namespace Mod4A6AMovieApp
                     Movie movie = new Movie(); 
                     movie = new Movie(newID, newMovieTitle);
                     movie.ListUtility();
+                    movie.Genre = movie.Genre;
                     Movies.Add(movie);
+                    System.Console.WriteLine("\nMovie is added to Array List but not to .csv... movies.csv is still being used???\n" + movie);
                     //HELP HERE!!!
                     
                     //ADD NEW MOVIE TO CSV FILE:
@@ -123,6 +125,7 @@ namespace Mod4A6AMovieApp
                     sw.Close();
                     log.Info($"Movie {newID} added");
                     System.Console.WriteLine("\nYour movie has been added to the list.");
+                    System.Console.WriteLine();
                 }
                 catch (Exception e)
                 {

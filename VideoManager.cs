@@ -20,13 +20,15 @@ namespace Mod4A6AMovieApp
         }
 
          public override void ReadCsv()
-        {   
+        {               
             Video video = new Video();
+            
+            System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,-25}  {3,7}  {4,-25}","Id", "Title", "Format", "Length", "Regions"));  
+            
             string file = "videos.csv";
             string path = $"{Environment.CurrentDirectory}/data/{file}";
             StreamReader sr = new StreamReader(path);
-            sr = new StreamReader(path);     
-            
+            sr = new StreamReader(path); 
             if (File.Exists(path))
             {   
                 while (!sr.EndOfStream)

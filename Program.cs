@@ -40,6 +40,7 @@ namespace Mod4A6AMovieApp
                 if (libraryOption.ToUpper() == "ADD")
                 {
                     movieManager.Add();
+
                 }
 
                 //LIST DIFFERENT MEDIAS
@@ -73,7 +74,7 @@ namespace Mod4A6AMovieApp
                             Console.WriteLine("\nException Note: " + e.Message);   
                             }
                         } 
-                    else
+                    else if (mediaChoice == "VIDEO")
                     {
                         try 
                         {
