@@ -1,7 +1,6 @@
 using System.IO.Enumeration;
 using System.Net;
 using System;
-//using NLogBuilder;  --- NLog was getting Compiler Error CS0234
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +14,8 @@ namespace Mod4A6AMovieApp
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Genre { get; set; }
+        public string[] Genre { get; set; }
+        //public string Genre { get; set; }
 
         public Movie()
         {
@@ -29,11 +29,14 @@ namespace Mod4A6AMovieApp
     
         public override string ToString() 
         {
-            return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, Genre);
+            
+            //return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, Genre);
+            return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
         }
 
         public void ListUtility()
         {
+            //COLLECTING GENRES FOR NEW MOVIE & CREATING STRINGS SEPARATED BY "|"
             string[] genre = new string[6];
             int j = 0;
             string moreGenre = "";
@@ -66,8 +69,10 @@ namespace Mod4A6AMovieApp
             {
                 genres = genre[0];
             }
-            this.Genre =  genres;
+            this.Genre =  genre;
         }
+
+        //-------------------------------------------------------------------------------------------------------
 
         public override void Display()
         {   

@@ -27,7 +27,7 @@ namespace Mod4A6AMovieApp
             string movieFile = "movies.csv";
             string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
             StreamReader sr = new StreamReader(moviePath);
-            sr = new StreamReader(moviePath);      
+            sr = new StreamReader(moviePath);     
             
             if (File.Exists(moviePath))
             {   
@@ -48,15 +48,12 @@ namespace Mod4A6AMovieApp
                     }
                     else if (!(lineChar[0].Equals('i')))                                //Not the header line
                     {                        
-                        int mID = Int32.Parse(line.Substring(0,quote-1));   
-                        System.Console.Write(mID + " ");                     
+                        int mID = Int32.Parse(line.Substring(0,quote-1));    
                         line = line.Remove(0,quote+1);
                         quote = line.IndexOf('"');
                         string mTitle = line.Substring(0,quote);
-                        System.Console.Write(mTitle + " ");
                         line = line.Remove(0,quote+2);
-                        string[] genresPerMovie = (line.Split('|'));
-                        System.Console.Write(string.Join(", ", genresPerMovie) + "\n");                        
+                        string[] genresPerMovie = (line.Split('|'));                       
                         movie = new Movie(mID, mTitle);
                         movie.Genre = genresPerMovie;
                         Movies.Add(movie);
@@ -68,7 +65,7 @@ namespace Mod4A6AMovieApp
 
         //---------------------------------------------------------------------------------------------------
         public void Add()
-        {
+        {            
             //COLLECT NEW MOVIE INFO & DETERMINE IF DUPLICATE OR NOT:
             Logger log = LogManager.GetCurrentClassLogger();
             log.Trace("Logging starts now");

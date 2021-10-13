@@ -37,7 +37,6 @@ namespace Mod4A6AMovieApp
 
                 MovieManager movieManager = new MovieManager(); 
                 movieManager.ReadCsv();
-                
                 if (libraryOption.ToUpper() == "ADD")
                 {
                     movieManager.Add();
@@ -64,7 +63,6 @@ namespace Mod4A6AMovieApp
                         {
                         try 
                             {
-                                System.Console.WriteLine("LIST OF SHOWS HERE");
                                 ShowManager showManager = new ShowManager();
                                 showManager.ReadCsv();
                                 Show show = new Show();

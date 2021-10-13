@@ -38,7 +38,7 @@ namespace Mod4A6AMovieApp
        
         public override string ToString() 
         {
-            return String.Format("{0,8}  {1,-45}  {2,5}  {3,5}  {4,-35}",Id, Title, Season, Episode, Writers);
+            return String.Format("{0,8}  {1,-45}  {2,5}  {3,5}  {4,-35}",Id, Title, Season, Episode, string.Join(", ", Writers));
         }
 
         public override void Display()

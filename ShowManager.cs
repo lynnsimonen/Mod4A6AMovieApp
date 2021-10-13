@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CsvHelper;
 using System.Globalization;
+using NLog;
+using NLog.Web;
 
 namespace Mod4A6AMovieApp
 {
@@ -20,48 +22,47 @@ namespace Mod4A6AMovieApp
         }
 
         public override void ReadCsv()
-        {
-            //ShowManager showManager = new ShowManager();
+        {   
             Show show = new Show();
-            string file = "shows.csv";
-            string path = $"{Environment.CurrentDirectory}/data/{file}";
-            StreamReader sr = new StreamReader(path);
-                        
-            if (File.Exists(path)) 
-            {    
-                sr = new StreamReader(path);
+            string showFile = "shows.csv";
+            string showPath = $"{Environment.CurrentDirectory}/data/{showFile}";
+            StreamReader sr = new StreamReader(showPath);
+            sr = new StreamReader(showPath);     
+            
+            if (File.Exists(showPath))
+            {   
                 while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
-                    string[] arr = line.Split(',');
+                    char[] lineChar = line.ToCharArray();
                     int quote = line.IndexOf('"');
 
-                    if ((quote == -1) && (arr[0] != "iD"))
+                    if ((quote == -1) && (!(lineChar[0].Equals('i'))))                  //No quotes in title & Not the header line
                     {
-                        arr = line.Split(',');
+                        string[] arr = line.Split(',');
                         show = new Show(Int32.Parse(arr[0]), arr[1], Int32.Parse(arr[2]), Int32.Parse(arr[3])); 
-                        //HOW READ AN ARRAY                           
-                        // string[] Writers = arr[4];
-                        // Shows.Add(Show);
+                        string[] writersPerMovie = (arr[4]).Split('|'); 
+                        show.Writers = writersPerMovie;
+                        Shows.Add(show);
                     }
-                    else if (arr[0] != "iD")
-                    {
-                        int sID = Int32.Parse(line.Substring(0,quote-1));
-                        line = line.Substring(quote + 1);
+                    else if (!(lineChar[0].Equals('i')))                                //Not the header line
+                    {                        
+                        int sID = Int32.Parse(line.Substring(0,quote-1));   
+                        line = line.Remove(0,quote+1);
                         quote = line.IndexOf('"');
                         string sTitle = line.Substring(0,quote);
-                        show = new Show(sID, sTitle);
-                        line = line.Substring(quote + 2);
-                        //HOW READ AN ARRAY
-                        // string[] Writers = line;
-                        // Shows.Add(show);
+                        line = line.Remove(0,quote+2);
+                        string[] arr = line.Split(',');                        
+                        int sSeason = Int32.Parse(arr[0]);  
+                        int sEpisode = Int32.Parse(arr[1]);
+                        string [] writersPerMovie = arr[2].Split('|');                       
+                        show = new Show(sID, sTitle, sSeason, sEpisode);
+                        show.Writers = writersPerMovie;
+                        Shows.Add(show);
                     }                       
-                }
+                }                 
             }
             sr.Close();
-            
         }
-
-       
     }
 }
