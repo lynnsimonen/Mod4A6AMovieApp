@@ -54,8 +54,6 @@ namespace Mod4A6AMovieApp
                         mediaChoice = Console.ReadLine().ToUpper();
                         oops4 = (mediaChoice == "SHOW" || mediaChoice == "VIDEO" || mediaChoice == "MOVIE") ? "Y" : "N";
                     } while (oops4 != "Y") ;  
-
-                    //media = (mediaChoice == "SHOW") ? "shows.csv" : (media = (mediaChoice == "VIDEO") ? "videos.csv" : "movies.csv");
                     
                     if (mediaChoice == "MOVIE")
                     { 

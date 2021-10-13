@@ -34,45 +34,52 @@ namespace Mod4A6AMovieApp
                 while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
-                    string[] arr = line.Split(',');
+                    char[] lineChar = line.ToCharArray();
                     int quote = line.IndexOf('"');
 
-                    if ((quote == -1) && (arr[0] != "iD"))
+                    if ((quote == -1) && (!(lineChar[0].Equals('i'))))                  //No quotes in title & Not the header line
                     {
-                        arr = line.Split(',');
-                        movie = new Movie(Int32.Parse(arr[0]), arr[1]);                            
-                        movie.Genre = arr[2];
+                        string[] arr = line.Split(',');
+                        movie = new Movie(Int32.Parse(arr[0]), arr[1]); 
+                        string[] genresPerMovie = (arr[2]).Split('|');             
+                        //movie.Genre = arr[2];
+                        movie.Genre = genresPerMovie;
                         Movies.Add(movie);
                     }
-                    else if (arr[0] != "iD")
-                    {
-                        //Count '"' in line before this step:
-                        int mID = Int32.Parse(line.Substring(0,quote-1));
-                        line = line.Substring(quote + 1);
+                    else if (!(lineChar[0].Equals('i')))                                //Not the header line
+                    {                        
+                        int mID = Int32.Parse(line.Substring(0,quote-1));   
+                        System.Console.Write(mID + " ");                     
+                        line = line.Remove(0,quote+1);
                         quote = line.IndexOf('"');
                         string mTitle = line.Substring(0,quote);
+                        System.Console.Write(mTitle + " ");
+                        line = line.Remove(0,quote+2);
+                        string[] genresPerMovie = (line.Split('|'));
+                        System.Console.Write(string.Join(", ", genresPerMovie) + "\n");                        
                         movie = new Movie(mID, mTitle);
-                        line = line.Substring(quote + 2);
-                        movie.Genre = line;
+                        movie.Genre = genresPerMovie;
                         Movies.Add(movie);
                     }                       
-                } 
+                }                 
             }
             sr.Close();
         }
 
+        //---------------------------------------------------------------------------------------------------
         public void Add()
         {
+            //COLLECT NEW MOVIE INFO & DETERMINE IF DUPLICATE OR NOT:
             Logger log = LogManager.GetCurrentClassLogger();
             log.Trace("Logging starts now");
             string newMovieTitle = "";
             string newMovie = "";
-            Boolean dup = false;
-            int newID = (Movies[Movies.Count-1].Id + 1);
+            Boolean dup = false;            
+            int newID = (Movies[Movies.Count-1].Id + 1);                                    //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
             try
             {
-                string oops2 = "";
-                string oops3 = "";
+                string oops2 = "";                                                          //MAKE SURE NEW MOVIE IS NOT BLANK
+                string oops3 = "";                                                          //MAKE SURE MOVIE YEAR IS WITHIN REASON
                 do {
                 Console.Write("Name of Movie to Add: ");
                 newMovie = Console.ReadLine();
@@ -82,7 +89,7 @@ namespace Mod4A6AMovieApp
                 int theYear = Convert.ToInt32(movieRelease);
                 //NEEDS HELP HERE
                 oops3 = ((theYear > 1906) || (theYear < 2022)) ? "Y" : "N";
-                newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");
+                newMovieTitle = string.Format(newMovie + " (" + movieRelease + ")");        //** NEW MOVIE NAME = NAME + YEAR
                 } while ((oops2 != "Y") || (oops3 != "Y"));      
             } 
             catch (Exception e)
@@ -104,12 +111,14 @@ namespace Mod4A6AMovieApp
             if (!(dup))
             {     
                 try {  
+                    //ADD NEW MOVIE TO MOVIES ARRAY LIST:
                     Movie movie = new Movie(); 
                     movie = new Movie(newID, newMovieTitle);
                     movie.ListUtility();
                     Movies.Add(movie);
                     //HELP HERE!!!
                     
+                    //ADD NEW MOVIE TO CSV FILE:
                     string movieFile = "movies.csv";
                     string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
                     StreamWriter sw = new StreamWriter(moviePath, true);
