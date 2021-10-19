@@ -38,13 +38,14 @@ namespace Mod4A6AMovieApp
        
         public override string ToString() 
         {
-            return String.Format("{0,8}  {1,-45}  {2,5}  {3,5}  {4,-35}",Id, Title, Season, Episode, string.Join(", ", Writers));
+            return String.Format("{0,8}  {1,-45}  {2,5}  {3,10}    {4,-35}",Id, Title, Season, Episode, string.Join(", ", Writers));
         }
 
         public override void Display()
         {   
             ShowManager showManager = new ShowManager();
             showManager.ReadCsv();
+            System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,5}  {3,10}   {4,-35}","Id", "Title", "Season", "Episode", "Writers"));
             foreach (var show in showManager.Shows)
             {
                 System.Console.WriteLine(show);

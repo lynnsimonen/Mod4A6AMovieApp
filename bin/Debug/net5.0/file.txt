@@ -140,3 +140,6 @@
 2021-10-19 15:05:45.4110|Debug|   at System.String.Join(String separator, String[] value)
    at Mod4A6AMovieApp.Movie.ToString() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\Movie.cs:line 34
    at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\MovieManager.cs:line 117
+2021-10-19 15:39:39.2853|Debug|   at System.String.Join(String separator, String[] value)
+   at Mod4A6AMovieApp.Movie.ToString() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\Movie.cs:line 34
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\MovieManager.cs:line 117

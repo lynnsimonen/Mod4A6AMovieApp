@@ -38,14 +38,14 @@ namespace Mod4A6AMovieApp
 
         public override string ToString() 
         {
-            return String.Format("{0,8}  {1,-45}  {2,-25}  {3,7}  {4,-25}",Id, Title, Format, Length, string.Join(", ", Regions));
+            return String.Format("{0,8}  {1,-45}  {2,-20}  {3,7}  {4,-25}",Id, Title, Format, Length, string.Join(", ", Regions));
         }
 
         public override void Display()
         {   
             VideoManager videoManager = new VideoManager();
             videoManager.ReadCsv();
-            System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,-25}  {3,7}  {4,-25}","Id", "Title", "Format", "Length", "Regions"));  
+            System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,-20}  {3,7}  {4,-25}","Id", "Title", "Format", "Length", "Regions"));  
             foreach (var video in videoManager.Videos)
             {
                 System.Console.WriteLine(video);

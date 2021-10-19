@@ -80,6 +80,7 @@ namespace Mod4A6AMovieApp
         {   
             MovieManager movieManager = new MovieManager();
             movieManager.ReadCsv();
+            System.Console.WriteLine(String.Format("{0,8}  {1,-65}  {2,-45}","Id", "Title", "Genre"));
             string listMore = "";
             int start = 0; 
             do
