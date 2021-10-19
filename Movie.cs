@@ -34,7 +34,7 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
         }
 
-        public void ListUtility()
+        public string ListUtility()
         {
             //COLLECTING GENRES FOR NEW MOVIE & CREATING STRINGS SEPARATED BY "|"
             string[] genre = new string[6];
@@ -54,8 +54,9 @@ namespace Mod4A6AMovieApp
                 Console.WriteLine("Is there another genre for this movie (Y/N)?");
                 moreGenre = Console.ReadLine().ToUpper();
                 oops2 = (moreGenre == "Y" || moreGenre == "N") ? "Y" : "N";
-                } while (oops2 != "Y");
+                } while (oops2 != "Y");               
             } while (moreGenre == "Y");
+            //string[] Genre = string[] genre;
             string genres = "";
             if (j >= 1)
             {
@@ -64,12 +65,13 @@ namespace Mod4A6AMovieApp
                     genres += genre[k] + "|";
                 }
                 genres = genres + genre[j - 1];
+                return genres;
             }
             else
             {
                 genres = genre[0];
-            }
-            this.Genre =  genre;
+                return genres;
+            }           
         }
 
         //-------------------------------------------------------------------------------------------------------

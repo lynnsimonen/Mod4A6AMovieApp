@@ -33,39 +33,51 @@ namespace Mod4A6AMovieApp
                 libraryOption = Console.ReadLine().ToUpper();
                 //logData.Info("Data: {0}", libraryOption);
                 oops = (libraryOption == "ADD" || libraryOption == "QUIT" ||libraryOption == "LIST") ? "Y" : "N";
-                } while (oops != "Y");   
+                } while (oops != "Y");  
 
-                MovieManager movieManager = new MovieManager(); 
-                movieManager.ReadCsv();
+                //ADD MOVIE TO MOVIES.CSV
                 if (libraryOption.ToUpper() == "ADD")
                 {
+                    MovieManager movieManager = new MovieManager(); 
+                    movieManager.ReadCsv();
                     movieManager.Add();
-
                 }
 
                 //LIST DIFFERENT MEDIAS
                 else if (libraryOption.ToUpper() == "LIST")
                 {
                     string mediaChoice = "";
-                    string media = ""; 
                     string oops4 = "";
                     do {
                         Console.WriteLine("\nWhich media type would you like listed? SHOW, VIDEO or MOVIE:   ");
                         mediaChoice = Console.ReadLine().ToUpper();
                         oops4 = (mediaChoice == "SHOW" || mediaChoice == "VIDEO" || mediaChoice == "MOVIE") ? "Y" : "N";
                     } while (oops4 != "Y") ;  
-                    
+
+                    //--------------------------------------
                     if (mediaChoice == "MOVIE")
-                    { 
-                       Movie movie = new Movie();
-                       movie.Display();
+                    // { 
+                    //    Movie movie = new Movie();
+                    //    movie.Display();
+                    // } 
+                    {
+                    try 
+                        {
+                            MovieManager movieManager = new MovieManager(); 
+                            Movie movie = new Movie();
+                            movie.Display();
+                        }
+                    catch(Exception e)
+                        {
+                        Console.WriteLine("\nException Note: " + e.Message);   
+                        }
                     } 
+                    //--------------------------------------
                     else if (mediaChoice == "SHOW")
                         {
                         try 
                             {
                                 ShowManager showManager = new ShowManager();
-                                showManager.ReadCsv();
                                 Show show = new Show();
                                 show.Display();
                             }
@@ -79,7 +91,6 @@ namespace Mod4A6AMovieApp
                         try 
                         {
                             VideoManager videoManager = new VideoManager();
-                            videoManager.ReadCsv();
                             Video video = new Video();
                             video.Display();
                         }

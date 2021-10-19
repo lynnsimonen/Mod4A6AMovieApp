@@ -27,7 +27,6 @@ namespace Mod4A6AMovieApp
             string movieFile = "movies.csv";
             string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
             StreamReader sr = new StreamReader(moviePath);
-            sr = new StreamReader(moviePath);     
             
             if (File.Exists(moviePath))
             {   
@@ -36,6 +35,7 @@ namespace Mod4A6AMovieApp
                     string line = sr.ReadLine();
                     char[] lineChar = line.ToCharArray();
                     int quote = line.IndexOf('"');
+
 
                     if ((quote == -1) && (!(lineChar[0].Equals('i'))))                  //No quotes in title & Not the header line
                     {

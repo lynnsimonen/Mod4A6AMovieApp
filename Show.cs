@@ -45,22 +45,10 @@ namespace Mod4A6AMovieApp
         {   
             ShowManager showManager = new ShowManager();
             showManager.ReadCsv();
-            string listMore = "";
-            int start = 0; 
-            do
+            foreach (var show in showManager.Shows)
             {
-                for (int i = start; i < (start + 5); i++)
-                {
-                Console.WriteLine(showManager.Shows[i]);
-                }
-                start += 5;
-                string oops5 = "";
-                do {
-                Console.WriteLine("\nWould you like to have more shows listed? Y/N");
-                listMore = Console.ReadLine().ToUpper();
-                oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
-                } while (oops5 != "Y");  
-            } while (!(listMore == "N"));
+                System.Console.WriteLine(show);
+            }
         }
     }    
 }

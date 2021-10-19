@@ -45,22 +45,11 @@ namespace Mod4A6AMovieApp
         {   
             VideoManager videoManager = new VideoManager();
             videoManager.ReadCsv();
-            string listMore = "";
-            int start = 0; 
-            do
+            System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,-25}  {3,7}  {4,-25}","Id", "Title", "Format", "Length", "Regions"));  
+            foreach (var video in videoManager.Videos)
             {
-                for (int i = start; i < (start + 5); i++)
-                {
-                Console.WriteLine(videoManager.Videos[i]);
-                }
-                start += 5;
-                string oops5 = "";
-                do {
-                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-                listMore = Console.ReadLine().ToUpper();
-                oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
-                } while (oops5 != "Y");  
-            } while (!(listMore == "N"));
+                System.Console.WriteLine(video);
+            }
         }
     }    
 }

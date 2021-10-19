@@ -27,7 +27,6 @@ namespace Mod4A6AMovieApp
             string showFile = "shows.csv";
             string showPath = $"{Environment.CurrentDirectory}/data/{showFile}";
             StreamReader sr = new StreamReader(showPath);
-            sr = new StreamReader(showPath);     
             
             if (File.Exists(showPath))
             {   
