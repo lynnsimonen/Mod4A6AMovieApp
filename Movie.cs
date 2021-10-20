@@ -29,19 +29,16 @@ namespace Mod4A6AMovieApp
     
         public override string ToString() 
         {
-            
-            //return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, Genre);
             return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
         }
 
         public string ListUtility()
         {
-            //COLLECTING GENRES FOR NEW MOVIE & CREATING STRINGS SEPARATED BY "|"
+            //COLLECTING GENRES FOR NEW MOVIE & CREATING STRING SEPARATED BY "|"
             string[] genre = new string[6];
             int j = 0;
             string moreGenre = "";
-            do
-            {
+            do {
                 string oops1 = "";
                 do{
                 Console.WriteLine("Enter movie genre: ");
@@ -56,7 +53,6 @@ namespace Mod4A6AMovieApp
                 oops2 = (moreGenre == "Y" || moreGenre == "N") ? "Y" : "N";
                 } while (oops2 != "Y");               
             } while (moreGenre == "Y");
-            //string[] Genre = string[] genre;
             string genres = "";
             if (j >= 1)
             {
@@ -70,8 +66,8 @@ namespace Mod4A6AMovieApp
             else
             {
                 genres = genre[0];
-                return genres;
-            }           
+                return genres;   
+            }
         }
 
         //-------------------------------------------------------------------------------------------------------

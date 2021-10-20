@@ -143,3 +143,20 @@
 2021-10-19 15:39:39.2853|Debug|   at System.String.Join(String separator, String[] value)
    at Mod4A6AMovieApp.Movie.ToString() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\Movie.cs:line 34
    at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\MovieManager.cs:line 117
+2021-10-19 19:17:54.3787|Debug|   at System.String.Join(String separator, String[] value)
+   at Mod4A6AMovieApp.Movie.ToString() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\Movie.cs:line 34
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\MovieManager.cs:line 117
+2021-10-19 19:46:20.4028|Debug|   at System.String.Join(String separator, String[] value)
+   at Mod4A6AMovieApp.Movie.ToString() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\Movie.cs:line 34
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\MovieManager.cs:line 118
+2021-10-19 19:51:25.0049|Debug|   at System.String.Join(String separator, String[] value)
+   at Mod4A6AMovieApp.Movie.ToString() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\Movie.cs:line 34
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\MovieManager.cs:line 118
+2021-10-19 19:53:41.7475|Debug|   at System.String.Join(String separator, String[] value)
+   at Mod4A6AMovieApp.Movie.ToString() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\Movie.cs:line 34
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\MovieManager.cs:line 118
+2021-10-19 20:07:11.8478|Info|Movie 164980 added
+2021-10-19 20:07:35.7764|Info|Movie 164980 added
+2021-10-19 20:17:31.9650|Info|Movie 164980 added
+2021-10-19 20:22:16.6586|Info|Movie 164980 added
+2021-10-19 20:31:44.1657|Info|Movie 164980 added

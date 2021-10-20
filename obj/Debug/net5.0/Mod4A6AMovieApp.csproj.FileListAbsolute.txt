@@ -41,3 +41,27 @@ C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.abstractions.dll
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.core.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.config
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.exe
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.deps.json
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.runtimeconfig.json
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.runtimeconfig.dev.json
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\ref\Mod4A6AMovieApp.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\Mod4A6AMovieApp.pdb
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\CsvHelper.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.Extensions.Logging.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\NLog.Web.AspNetCore.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.abstractions.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.core.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.csproj.AssemblyReference.cache
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.AssemblyInfoInputs.cache
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.AssemblyInfo.cs
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.csproj.CoreCompileInputs.cache
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.csproj.CopyComplete
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\ref\Mod4A6AMovieApp.dll
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.pdb
+C:\Users\Lynn\Documents\WCTC\2021 Fall - .Net\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.genruntimeconfig.cache

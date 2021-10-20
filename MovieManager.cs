@@ -41,8 +41,7 @@ namespace Mod4A6AMovieApp
                     {
                         string[] arr = line.Split(',');
                         movie = new Movie(Int32.Parse(arr[0]), arr[1]); 
-                        string[] genresPerMovie = (arr[2]).Split('|');             
-                        //movie.Genre = arr[2];
+                        string[] genresPerMovie = (arr[2]).Split('|'); 
                         movie.Genre = genresPerMovie;
                         Movies.Add(movie);
                     }
@@ -63,7 +62,6 @@ namespace Mod4A6AMovieApp
             sr.Close();
         }
 
-        //---------------------------------------------------------------------------------------------------
         public void Add()
         {            
             //COLLECT NEW MOVIE INFO & DETERMINE IF DUPLICATE OR NOT:
@@ -71,8 +69,7 @@ namespace Mod4A6AMovieApp
             log.Trace("Logging starts now");
             string newMovieTitle = "";
             string newMovie = "";
-            Boolean dup = false;            
-            int newID = (Movies[Movies.Count-1].Id + 1);                                    //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
+            Boolean dup = false;                                   //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
             try
             {
                 string oops2 = "";                                                          //MAKE SURE NEW MOVIE IS NOT BLANK
@@ -100,7 +97,7 @@ namespace Mod4A6AMovieApp
                 string alreadyInList = Movies[i].Title;
                 if (alreadyInList.Equals(newMovieTitle))
                 {
-                    Console.WriteLine("\n" + newMovie + " is already in the Movie Library.");       //+ "\n\n" +Movies[i]
+                    Console.WriteLine("\n" + newMovie + " is already in the Movie Library.");       
                     dup = true;  
                     break;                         
                 }                        
@@ -109,23 +106,24 @@ namespace Mod4A6AMovieApp
             {     
                 try {  
                     //ADD NEW MOVIE TO MOVIES ARRAY LIST:
-                    Movie movie = new Movie(); 
+                    Movie movie = new Movie();           
+                    int newID = (Movies[Movies.Count-1].Id + 1);  
                     movie = new Movie(newID, newMovieTitle);
-                    movie.ListUtility();
-                    movie.Genre = movie.Genre;
+                    string listUtility = movie.ListUtility();
+                    string[] movieGenres = listUtility.Split('|');
+                    movie.Genre = movieGenres;   
                     Movies.Add(movie);
-                    System.Console.WriteLine("\nMovie is added to Array List but not to .csv... movies.csv is still being used???\n" + movie);
-                    //HELP HERE!!!
-                    
+                    string csvMovie = newMovieTitle;
+                    int csvNewID = newID;
+
                     //ADD NEW MOVIE TO CSV FILE:
                     string movieFile = "movies.csv";
                     string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
                     StreamWriter sw = new StreamWriter(moviePath, true);
-                    sw.WriteLine($"{newID}, {movie}, {movie.Genre}");   // Won't append
+                    sw.WriteLine($"{csvNewID},{csvMovie},{listUtility}");  
                     sw.Close();
                     log.Info($"Movie {newID} added");
-                    System.Console.WriteLine("\nYour movie has been added to the list.");
-                    System.Console.WriteLine();
+                    System.Console.WriteLine("\nYour movie has been added to the list.\n");
                 }
                 catch (Exception e)
                 {
