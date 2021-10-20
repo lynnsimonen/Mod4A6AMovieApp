@@ -63,9 +63,9 @@ namespace Mod4A6AMovieApp
                     {
                     try 
                         {
-                            MovieManager movieManager = new MovieManager(); 
-                            Movie movie = new Movie();
-                            movie.Display();
+                            MediaManager mediaManager = new MovieManager(); 
+                            Media media = new Movie();
+                            media.Display();
                         }
                     catch(Exception e)
                         {
@@ -77,9 +77,9 @@ namespace Mod4A6AMovieApp
                         {
                         try 
                             {
-                                ShowManager showManager = new ShowManager();
-                                Show show = new Show();
-                                show.Display();
+                                MediaManager mediaManager = new ShowManager();
+                                Media media = new Show();
+                                media.Display();
                             }
                         catch(Exception e)
                             {
@@ -90,9 +90,9 @@ namespace Mod4A6AMovieApp
                     {
                         try 
                         {
-                            VideoManager videoManager = new VideoManager();
-                            Video video = new Video();
-                            video.Display();
+                            MediaManager mediaManager = new VideoManager();
+                            Media media = new Video();
+                            media.Display();
                         }
                         catch(Exception e)
                         {
