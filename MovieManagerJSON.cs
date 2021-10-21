@@ -62,19 +62,18 @@ namespace Mod4A6AMovieApp
                 string jsonFile = "movies.json";
                 string jsonPath = $"{Environment.CurrentDirectory}/data/{jsonFile}";
                 string strResultJson = String.Empty;
-
-                strResultJson = System.IO.File.ReadAllText(@jsonPath);
-                List<MovieJSON> resultMovieJSON = JsonConvert.DeserializeObject<List<MovieJSON>>(strResultJson);  
+                strResultJson = System.IO.File.ReadAllText(@jsonPath);         //READ IN JSON FILE (COULD READ IN CSV LIST IF WANT TO WORK WITH ENTIRE LIST)
+                List<MovieJSON> resultMovieJSON = JsonConvert.DeserializeObject<List<MovieJSON>>(strResultJson);  //CONVERT JSON FILE TO LIST (TO ALLOW ADD MOVIE)
                 int newID = (resultMovieJSON[resultMovieJSON.Count-1].Id + 1);   
                 movieJson = new MovieJSON(newID, newMovieTitle);
-                string listUtility = movieJson.ListUtility();
-                string[] movieGenres = listUtility.Split('|');
+                string listUtility = movieJson.ListUtility();  //CREATE A STRING COMBINED WITH '|' OF ALL GENRES
+                string[] movieGenres = listUtility.Split('|');  //CREATE STRING ARRAY OF ALL GENRES
                 movieJson.Genre = movieGenres;                
                 resultMovieJSON.Add(movieJson);
                
                 //ADD NEW MOVIE TO JSON FILE:    
-                var json = JsonConvert.SerializeObject(resultMovieJSON);
-                System.IO.File.WriteAllText(@jsonPath, json);
+                var json = JsonConvert.SerializeObject(resultMovieJSON);    //CONVERT/SERIALIZE LIST 
+                System.IO.File.WriteAllText(@jsonPath, json);               //WRITE CONVERTED LIST TO JSON FILE
                 System.Console.WriteLine("\nYour file has been stored.\n");
                 log.Info($"Movie {newID} added");
                 new MovieJSON {Id = newID, Title = "newMovieTitle", Genre = movieGenres};
