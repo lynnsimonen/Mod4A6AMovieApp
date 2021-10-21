@@ -35,8 +35,8 @@ namespace Mod4A6AMovieApp
             string newMovie = "";                               //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
             try
             {
-                string oops2 = "";                                                          //MAKE SURE NEW MOVIE IS NOT BLANK
-                string oops3 = "";                                                          //MAKE SURE MOVIE YEAR IS WITHIN REASON
+                string oops2 = "";                              //MAKE SURE NEW MOVIE IS NOT BLANK
+                string oops3 = "";                              //MAKE SURE MOVIE YEAR IS WITHIN REASON
                 do {
                 Console.Write("Name of Movie to Add: ");
                 newMovie = Console.ReadLine();
@@ -58,25 +58,26 @@ namespace Mod4A6AMovieApp
             try 
             {  
                 //ADD NEW MOVIE TO MOVIES ARRAY LIST:  
-                MovieJSON movieJson = new MovieJSON();                         
-                //int newID = (Movies[Movies.Count-1].Id + 1);  
-                int newID = 3;
+                MovieJSON movieJson = new MovieJSON();
+                string jsonFile = "movies.json";
+                string jsonPath = $"{Environment.CurrentDirectory}/data/{jsonFile}";
+                string strResultJson = String.Empty;
+
+                strResultJson = System.IO.File.ReadAllText(@jsonPath);
+                List<MovieJSON> resultMovieJSON = JsonConvert.DeserializeObject<List<MovieJSON>>(strResultJson);  
+                int newID = (resultMovieJSON[resultMovieJSON.Count-1].Id + 1);   
                 movieJson = new MovieJSON(newID, newMovieTitle);
                 string listUtility = movieJson.ListUtility();
                 string[] movieGenres = listUtility.Split('|');
-                movieJson.Genre = movieGenres;   
-                MoviesJson.Add(movieJson);
-
-                //ADD NEW MOVIE TO JSON FILE:       
-                string jsonFile = "movies.json";
-                string json = $"{Environment.CurrentDirectory}/data/{jsonFile}";
-                movieJson.Id = newID;
-                movieJson.Title = newMovieTitle;
-                movieJson.Genre = movieGenres;              
-                string strResultJson = JsonConvert.SerializeObject(movieJson);
-                System.IO.File.WriteAllText(@json, strResultJson);
-                System.Console.WriteLine("\nYour file has been stored: " + strResultJson);
+                movieJson.Genre = movieGenres;                
+                resultMovieJSON.Add(movieJson);
+               
+                //ADD NEW MOVIE TO JSON FILE:    
+                var json = JsonConvert.SerializeObject(resultMovieJSON);
+                System.IO.File.WriteAllText(@jsonPath, json);
+                System.Console.WriteLine("\nYour file has been stored.\n");
                 log.Info($"Movie {newID} added");
+                new MovieJSON {Id = newID, Title = "newMovieTitle", Genre = movieGenres};
             }
             catch (Exception e)
             {

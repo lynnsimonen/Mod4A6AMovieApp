@@ -171,3 +171,23 @@
    at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\MovieManager.cs:line 83
 2021-10-20 21:08:27.4368|Info|Movie 164986 added
 2021-10-20 21:12:09.1612|Info|Movie 3 added
+2021-10-20 21:55:24.8167|Debug|   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at Mod4A6AMovieApp.MovieManagerJSON.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\MovieManagerJSON.cs:line 77
+2021-10-20 22:49:06.6475|Info|Movie 6 added
+2021-10-20 23:33:36.3693|Info|Movie 6 added
+2021-10-20 23:36:46.4721|Info|Movie 6 added
+2021-10-20 23:39:48.4184|Info|Movie 6 added
+2021-10-20 23:47:45.8710|Info|Movie 6 added
+2021-10-20 23:52:06.9686|Info|Movie 6 added
+2021-10-20 23:53:26.2194|Info|Movie 6 added
+2021-10-20 23:57:01.0498|Info|Movie 6 added
+2021-10-21 00:14:00.7895|Info|Movie 6 added
+2021-10-21 00:21:50.4138|Info|Movie 6 added
+2021-10-21 00:25:31.8699|Info|Movie 7 added

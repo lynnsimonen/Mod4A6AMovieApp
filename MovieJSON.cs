@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -35,11 +36,14 @@ namespace Mod4A6AMovieApp
             System.Console.WriteLine(String.Format("{0,8}  {1,-65}  {2,-45}","Id", "Title", "Genre"));
             MovieJSON movieJson = new MovieJSON();
             string jsonFile = "movies.json";
-            string json = $"{Environment.CurrentDirectory}/data/{jsonFile}";
+            string jsonPath = $"{Environment.CurrentDirectory}/data/{jsonFile}";
             string strResultJson = String.Empty;
-            strResultJson = System.IO.File.ReadAllText(@json);
-            MovieJSON resultMovieJSON = JsonConvert.DeserializeObject<MovieJSON>(strResultJson);
-            System.Console.WriteLine(resultMovieJSON);
+            strResultJson = System.IO.File.ReadAllText(@jsonPath);
+            List<MovieJSON> resultMovieJSON = JsonConvert.DeserializeObject<List<MovieJSON>>(strResultJson);
+            foreach (var result in resultMovieJSON)
+            {
+                System.Console.WriteLine(result.ToString());
+            }
         }
 
         public string ListUtility()
