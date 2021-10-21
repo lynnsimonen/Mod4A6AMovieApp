@@ -165,3 +165,9 @@
 2021-10-20 16:55:40.3301|Info|Movie 164983 added
 2021-10-20 17:11:52.7807|Info|Movie 164984 added
 2021-10-20 20:35:43.3214|Info|Movie 164985 added
+2021-10-20 20:40:57.6065|Debug|   at System.Number.ThrowOverflowOrFormatException(ParsingStatus status, TypeCode type)
+   at System.Number.ParseInt32(ReadOnlySpan`1 value, NumberStyles styles, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at Mod4A6AMovieApp.MovieManager.Add() in C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\MovieManager.cs:line 83
+2021-10-20 21:08:27.4368|Info|Movie 164986 added
+2021-10-20 21:12:09.1612|Info|Movie 3 added

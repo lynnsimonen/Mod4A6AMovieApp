@@ -39,10 +39,17 @@ namespace Mod4A6AMovieApp
                 //ADD MOVIE TO MOVIES.CSV
                 if (libraryOption.ToUpper() == "ADD")
                 {
-                    MovieManager movieManager = new MovieManager(); 
-                    movieManager.ReadFile();
-                    movieManager.Add();
+                    MediaManager mediaManager = new MovieManagerJSON();
+                    mediaManager.Add();
                 }
+
+                //----------------------------------------------------------------------------
+                // {
+                //     MovieManager movieManager = new MovieManager(); 
+                //     movieManager.ReadFile();
+                //     movieManager.Add();
+                // }
+                //----------------------------------------------------------------------------
 
                 //LIST DIFFERENT MEDIAS
                 else if (libraryOption.ToUpper() == "LIST")

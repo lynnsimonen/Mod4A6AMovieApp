@@ -32,8 +32,7 @@ namespace Mod4A6AMovieApp
             Logger log = LogManager.GetCurrentClassLogger();
             log.Trace("Logging in MovieManagerJSON.cs starts now");
             string newMovieTitle = "";
-            string newMovie = "";
-            Boolean dup = false;                                   //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
+            string newMovie = "";                               //** NEW MOVIE ID # (FROM MOVIES ARRAY LIST)
             try
             {
                 string oops2 = "";                                                          //MAKE SURE NEW MOVIE IS NOT BLANK
@@ -69,21 +68,15 @@ namespace Mod4A6AMovieApp
                 MoviesJson.Add(movieJson);
 
                 //ADD NEW MOVIE TO JSON FILE:       
-                string movieFile = "movies.csv";
-                string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
+                string jsonFile = "movies.json";
+                string json = $"{Environment.CurrentDirectory}/data/{jsonFile}";
                 movieJson.Id = newID;
                 movieJson.Title = newMovieTitle;
                 movieJson.Genre = movieGenres;              
                 string strResultJson = JsonConvert.SerializeObject(movieJson);
-
-
-
-
-                // StreamWriter sw = new StreamWriter(moviePath, true);
-                // sw.WriteLine($"{csvNewID},{csvMovie},{listUtility}");  
-                // sw.Close();
+                System.IO.File.WriteAllText(@json, strResultJson);
+                System.Console.WriteLine("\nYour file has been stored: " + strResultJson);
                 log.Info($"Movie {newID} added");
-                System.Console.WriteLine("\nYour movie has been added to the list.\n");
             }
             catch (Exception e)
             {
