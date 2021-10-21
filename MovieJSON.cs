@@ -1,26 +1,25 @@
-using System.IO.Enumeration;
-using System.Net;
 using System;
-using System.IO;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using CsvHelper;
-using System.Globalization;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace Mod4A6AMovieApp
-{   
-    public class Movie : IMedia
+{
+    public class MovieJSON : IMedia
     {
+        
         public int Id { get; set; }
         public string Title { get; set; }
         public string[] Genre { get; set; }
 
-        public Movie()
+        public MovieJSON()
         {
         }
 
-        public Movie(int Id, string Title)
+        public MovieJSON(int Id, string Title)
         {
             this.Id = Id;
             this.Title = Title;
@@ -29,6 +28,18 @@ namespace Mod4A6AMovieApp
         public override string ToString() 
         {
             return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
+        }
+
+        public void Display()
+        {
+            System.Console.WriteLine(String.Format("{0,8}  {1,-65}  {2,-45}","Id", "Title", "Genre"));
+            MovieJSON movieJson = new MovieJSON();
+            string jsonFile = "movies.json";
+            string json = $"{Environment.CurrentDirectory}/data/{jsonFile}";
+            string strResultJson = String.Empty;
+            strResultJson = System.IO.File.ReadAllText(@json);
+            MovieJSON resultMovieJSON = JsonConvert.DeserializeObject<MovieJSON>(strResultJson);
+            System.Console.WriteLine(resultMovieJSON);
         }
 
         public string ListUtility()
@@ -68,31 +79,5 @@ namespace Mod4A6AMovieApp
                 return genres;   
             }
         }
-
-        //-------------------------------------------------------------------------------------------------------
-
-        public void Display()
-        {   
-            MovieManager movieManager = new MovieManager();
-            movieManager.ReadFile();
-            System.Console.WriteLine(String.Format("{0,8}  {1,-65}  {2,-45}","Id", "Title", "Genre"));
-            string listMore = "";
-            int start = 0; 
-            do
-            {
-                for (int i = start; i < (start + 5); i++)
-                {
-                Console.WriteLine(movieManager.Movies[i]);
-                }
-                start += 5;
-                string oops5 = "";
-                do {
-                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
-                listMore = Console.ReadLine().ToUpper();
-                oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
-                } while (oops5 != "Y");  
-            } while (!(listMore == "N"));
-        }
-
-    }    
+    }
 }

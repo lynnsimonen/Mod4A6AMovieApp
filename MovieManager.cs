@@ -21,7 +21,7 @@ namespace Mod4A6AMovieApp
             Movies = new List<Movie>();
         }
 
-        public override void ReadCsv()
+        public override void ReadFile()
         {   
             Movie movie = new Movie();
             string movieFile = "movies.csv";
@@ -113,10 +113,10 @@ namespace Mod4A6AMovieApp
                     string[] movieGenres = listUtility.Split('|');
                     movie.Genre = movieGenres;   
                     Movies.Add(movie);
-                    string csvMovie = newMovieTitle;
-                    int csvNewID = newID;
 
                     //ADD NEW MOVIE TO CSV FILE:
+                    string csvMovie = newMovieTitle;
+                    int csvNewID = newID;                   
                     string movieFile = "movies.csv";
                     string moviePath = $"{Environment.CurrentDirectory}/data/{movieFile}";
                     StreamWriter sw = new StreamWriter(moviePath, true);

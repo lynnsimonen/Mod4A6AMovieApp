@@ -168,6 +168,15 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
+      "Newtonsoft.Json/13.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "NLog/4.7.11": {
         "type": "package",
         "compile": {
@@ -1617,6 +1626,33 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.1.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "NLog/4.7.11": {
@@ -4959,28 +4995,31 @@
       "NLog >= 4.7.11",
       "NLog.Config >= 4.7.11",
       "NLog.Web.AspNetCore >= 4.14.0",
+      "Newtonsoft.Json >= 13.0.1",
       "xunit.extensibility.core >= 2.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lynn\\.nuget\\packages\\": {}
+    "C:\\Users\\lynns\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lynn\\Documents\\WCTC\\2021 Fall - .Net\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
+      "projectUniqueName": "C:\\Users\\lynns\\Documents\\WCTC\\2021_Fall_dotnet\\Repositories\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
       "projectName": "Mod4A6AMovieApp",
-      "projectPath": "C:\\Users\\Lynn\\Documents\\WCTC\\2021 Fall - .Net\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
-      "packagesPath": "C:\\Users\\Lynn\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lynn\\Documents\\WCTC\\2021 Fall - .Net\\Mod4A6AMovieApp\\obj\\",
+      "projectPath": "C:\\Users\\lynns\\Documents\\WCTC\\2021_Fall_dotnet\\Repositories\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
+      "packagesPath": "C:\\Users\\lynns\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lynns\\Documents\\WCTC\\2021_Fall_dotnet\\Repositories\\Mod4A6AMovieApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lynn\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\lynns\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5015,6 +5054,10 @@
             "target": "Package",
             "version": "[4.14.0, )"
           },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          },
           "xunit.extensibility.core": {
             "target": "Package",
             "version": "[2.4.1, )"
@@ -5035,7 +5078,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

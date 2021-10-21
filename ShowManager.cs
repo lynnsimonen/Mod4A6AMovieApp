@@ -21,7 +21,7 @@ namespace Mod4A6AMovieApp
             Shows = new List<Show>();
         }
 
-        public override void ReadCsv()
+        public override void ReadFile()
         {   
             Show show = new Show();
             string showFile = "shows.csv";

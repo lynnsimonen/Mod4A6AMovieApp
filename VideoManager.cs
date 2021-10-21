@@ -19,7 +19,7 @@ namespace Mod4A6AMovieApp
             Videos = new List<Video>();
         }
 
-         public override void ReadCsv()
+         public override void ReadFile()
         {               
             Video video = new Video();
             

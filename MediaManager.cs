@@ -12,19 +12,18 @@ namespace Mod4A6AMovieApp
 {
     public abstract class MediaManager
     {
-        public List<Media> Medias { get; set; }       
+        public List<IMedia> Medias { get; set; }   
 
-        //public MediaManager();
-
-        public virtual void ReadCsv()
+        public virtual void ReadFile()
         {
-            
+            System.Console.WriteLine("Read file here...");
         }
 
-        public bool IsDuplicate()
+        public virtual void Add()
         {
-            return true;
-        }
+            System.Console.WriteLine("Add media to file.");
+        }  
+
     }
     
 }

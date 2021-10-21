@@ -11,6 +11,8 @@ using CsvHelper;
 using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Mod4A6AMovieApp
 {
@@ -22,7 +24,6 @@ namespace Mod4A6AMovieApp
             log.Trace("Logging starts now");
             
             string libraryOption = "";
-            MovieListUtility movieListUtility = new MovieListUtility();
             do
             {
                 string oops = "";
@@ -39,7 +40,7 @@ namespace Mod4A6AMovieApp
                 if (libraryOption.ToUpper() == "ADD")
                 {
                     MovieManager movieManager = new MovieManager(); 
-                    movieManager.ReadCsv();
+                    movieManager.ReadFile();
                     movieManager.Add();
                 }
 
@@ -54,17 +55,14 @@ namespace Mod4A6AMovieApp
                         oops4 = (mediaChoice == "SHOW" || mediaChoice == "VIDEO" || mediaChoice == "MOVIE") ? "Y" : "N";
                     } while (oops4 != "Y") ;  
 
-                    //--------------------------------------
+                   //----------------------------------------------------
+
+                   
                     if (mediaChoice == "MOVIE")
-                    // { 
-                    //    Movie movie = new Movie();
-                    //    movie.Display();
-                    // } 
                     {
                     try 
                         {
-                            MediaManager mediaManager = new MovieManager(); 
-                            Media media = new Movie();
+                            IMedia media = new MovieJSON(); 
                             media.Display();
                         }
                     catch(Exception e)
@@ -72,13 +70,28 @@ namespace Mod4A6AMovieApp
                         Console.WriteLine("\nException Note: " + e.Message);   
                         }
                     } 
+                   
+                    //--------------------------------------
+                    // if (mediaChoice == "MOVIE")
+                    // {
+                    // try 
+                    //     {
+                    //         MediaManager mediaManager = new MovieManager(); 
+                    //         IMedia media = new Movie();
+                    //         media.Display();
+                    //     }
+                    // catch(Exception e)
+                    //     {
+                    //     Console.WriteLine("\nException Note: " + e.Message);   
+                    //     }
+                    // } 
                     //--------------------------------------
                     else if (mediaChoice == "SHOW")
                         {
                         try 
                             {
                                 MediaManager mediaManager = new ShowManager();
-                                Media media = new Show();
+                                IMedia media = new Show();
                                 media.Display();
                             }
                         catch(Exception e)
@@ -91,7 +104,7 @@ namespace Mod4A6AMovieApp
                         try 
                         {
                             MediaManager mediaManager = new VideoManager();
-                            Media media = new Video();
+                            IMedia media = new Video();
                             media.Display();
                         }
                         catch(Exception e)

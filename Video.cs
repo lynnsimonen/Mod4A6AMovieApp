@@ -10,7 +10,7 @@ using System.Globalization;
 
 namespace Mod4A6AMovieApp
 {   
-    public class Video : Media
+    public class Video : IMedia
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -41,10 +41,10 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-45}  {2,-20}  {3,7}  {4,-25}",Id, Title, Format, Length, string.Join(", ", Regions));
         }
 
-        public override void Display()
+        public void Display()
         {   
             VideoManager videoManager = new VideoManager();
-            videoManager.ReadCsv();
+            videoManager.ReadFile();
             System.Console.WriteLine(String.Format("{0,8}  {1,-45}  {2,-20}  {3,7}  {4,-25}","Id", "Title", "Format", "Length", "Regions"));  
             foreach (var video in videoManager.Videos)
             {
