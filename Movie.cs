@@ -35,25 +35,25 @@ namespace Mod4A6AMovieApp
         {
             MovieManager movieManager = new MovieManager();
             movieManager.ReadFile();
-            searchWord = Console.ReadLine().ToUpper();
-            List <Movie> titles = movieManager.Movies.Where(m => m.Title.Contains(searchWord)).ToList();
-            foreach (Movie movie in movieManager.Movies)
+            List <Movie> titles = movieManager.Movies.Where(m => m.Title.ToUpper().Contains(searchWord)).ToList();
+            System.Console.WriteLine(string.Format($"\nMovie Library matches: ({titles.Count()})"));
+            string listMore = "";
+            int start = 0; 
+            do
             {
-                System.Console.WriteLine("Movie Library: " + movie);
-            }
+                for (int i = start; i < (start + 5); i++)
+                {
+                Console.WriteLine("     " + titles[i].Title);
+                }
+                start += 5;
+                string oops5 = "";
+                do {
+                Console.WriteLine("\nWould you like to have more movies listed? Y/N");
+                listMore = Console.ReadLine().ToUpper();
+                oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
+                } while (oops5 != "Y");  
+            } while (!(listMore == "N"));
         } 
-        //     //paginate
-        //     //var pageNumber = 4;
-        //     //var outputRows = 10;
-        //     //Employees.Skip(pageNumber*outputRows).Take(outputRows);
-        //     for(int a = 0; a <= Medias.Count(); a+=10)
-        //     {
-        //     Medias.Skip(a).Take(10);
-        //     a = a+10;
-        //     }
-        //     //var result = Employees.Where(x=>.Location == "United States").First();           or FirstOrDefault() or .Last() if only want one answer for result...
-        // } 
-
         public string ListUtility()
         {
             //COLLECTING GENRES FOR NEW MOVIE & CREATING STRING SEPARATED BY "|"

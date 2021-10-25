@@ -41,14 +41,15 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-45}  {2,5}  {3,10}    {4,-35}",Id, Title, Season, Episode, string.Join(", ", Writers));
         }
 
-         public void Search(string searchWord)
+        public void Search(string searchWord)
         {
             ShowManager showManager = new ShowManager();
             showManager.ReadFile();
-            List <Show> titles = showManager.Shows.Where(m => m.Title.Contains(searchWord)).ToList();
+            List <Show> titles = showManager.Shows.Where(m => m.Title.ToUpper().Contains(searchWord)).ToList();
+            System.Console.WriteLine(string.Format($"\nShow Library matches: ({titles.Count()})"));
             foreach (Show show in titles)
             {
-                System.Console.WriteLine("Show Library: " + show);
+                System.Console.WriteLine("     " + show.Title);
             }
         } 
 

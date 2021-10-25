@@ -45,11 +45,11 @@ namespace Mod4A6AMovieApp
         {
             VideoManager videoManager = new VideoManager();
             videoManager.ReadFile();
-            searchWord = Console.ReadLine().ToUpper();
-            List <Video> titles = videoManager.Videos.Where(m => m.Title.Contains(searchWord)).ToList();
-            foreach (Video video in videoManager.Videos)
+            List <Video> titles = videoManager.Videos.Where(m => m.Title.ToUpper().Contains(searchWord)).ToList();
+            System.Console.WriteLine(string.Format($"\nVideo Library matches: ({titles.Count()})"));
+            foreach (Video video in titles)
             {
-                System.Console.WriteLine("Video Library: " + video);
+                System.Console.WriteLine("     " + video.Title);
             }
         } 
 

@@ -52,13 +52,26 @@ namespace Mod4A6AMovieApp
                 // }
                 //----------------------------------------------------------------------------
 
-                if (libraryOption.ToUpper() == "SEARCH")
+                //SEARCH ALL CSV FILES FOR PHRASE: LIST TITLE AND LIBRARY                
+                else if (libraryOption.ToUpper() == "SEARCH")
                 {
-                    System.Console.Write("\nWhat media Title phrase would you like to search?: ");
-                    string phrase = Console.ReadLine().ToUpper();
-                    IMedia imedia = new Show();
-                    imedia.Search(phrase);
-                }
+                    string oops5 = "";
+                    string phrase = "";
+                    do {
+                        {
+                            System.Console.Write("\nWhat media Title phrase would you like to search?: ");
+                            phrase = Console.ReadLine().ToUpper();
+                            IMedia imedia = new Show();
+                            imedia.Search(phrase);
+                            string phrase2 = phrase;
+                            IMedia imedia2 = new Video();
+                            imedia2.Search(phrase2);
+                            IMedia imedia3 = new Movie();
+                            imedia3.Search(phrase);
+                        }                    
+                        oops5 = (phrase != "") ? "Y" : "N";
+                    } while (oops != "Y");
+                }                  
 
                 //LIST DIFFERENT MEDIAS
                 else if (libraryOption.ToUpper() == "LIST")
