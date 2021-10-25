@@ -31,6 +31,29 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
         }
 
+        public void Search(string searchWord)
+        {
+            MovieManager movieManager = new MovieManager();
+            movieManager.ReadFile();
+            searchWord = Console.ReadLine().ToUpper();
+            List <Movie> titles = movieManager.Movies.Where(m => m.Title.Contains(searchWord)).ToList();
+            foreach (Movie movie in movieManager.Movies)
+            {
+                System.Console.WriteLine("Movie Library: " + movie);
+            }
+        } 
+        //     //paginate
+        //     //var pageNumber = 4;
+        //     //var outputRows = 10;
+        //     //Employees.Skip(pageNumber*outputRows).Take(outputRows);
+        //     for(int a = 0; a <= Medias.Count(); a+=10)
+        //     {
+        //     Medias.Skip(a).Take(10);
+        //     a = a+10;
+        //     }
+        //     //var result = Employees.Where(x=>.Location == "United States").First();           or FirstOrDefault() or .Last() if only want one answer for result...
+        // } 
+
         public string ListUtility()
         {
             //COLLECTING GENRES FOR NEW MOVIE & CREATING STRING SEPARATED BY "|"

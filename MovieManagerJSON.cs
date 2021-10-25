@@ -53,8 +53,7 @@ namespace Mod4A6AMovieApp
             {
                 log.Debug(e.StackTrace);
                 Console.WriteLine("\nException Note: " + e.Message);
-            }
- 
+            } 
             try 
             {  
                 //ADD NEW MOVIE TO MOVIES ARRAY LIST:  

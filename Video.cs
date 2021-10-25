@@ -41,6 +41,18 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-45}  {2,-20}  {3,7}  {4,-25}",Id, Title, Format, Length, string.Join(", ", Regions));
         }
 
+        public void Search(string searchWord)
+        {
+            VideoManager videoManager = new VideoManager();
+            videoManager.ReadFile();
+            searchWord = Console.ReadLine().ToUpper();
+            List <Video> titles = videoManager.Videos.Where(m => m.Title.Contains(searchWord)).ToList();
+            foreach (Video video in videoManager.Videos)
+            {
+                System.Console.WriteLine("Video Library: " + video);
+            }
+        } 
+
         public void Display()
         {   
             VideoManager videoManager = new VideoManager();

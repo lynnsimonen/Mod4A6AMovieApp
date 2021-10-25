@@ -31,6 +31,11 @@ namespace Mod4A6AMovieApp
             return String.Format("{0,8}  {1,-65}  {2,-45}",Id, Title, string.Join(", ", Genre));
         }
 
+        public void Search(string searchWord)
+        {
+           
+        } 
+
         public void Display()
         {
             System.Console.WriteLine(String.Format("{0,8}  {1,-65}  {2,-45}","Id", "Title", "Genre"));

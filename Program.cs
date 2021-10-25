@@ -30,10 +30,11 @@ namespace Mod4A6AMovieApp
                 do {
                 Console.WriteLine("\nWELCOME TO THE MOVIE LIBRARY.  HOW CAN WE HELP YOU?"
                 +"\nADD a movie to the movie library"
-                + "\nLIST all items in different media categories \nQUIT program");                
+                +"\nLIST all items in different media categories \nQUIT program"
+                +"\nSEARCH media titles for a phrase");
                 libraryOption = Console.ReadLine().ToUpper();
                 //logData.Info("Data: {0}", libraryOption);
-                oops = (libraryOption == "ADD" || libraryOption == "QUIT" ||libraryOption == "LIST") ? "Y" : "N";
+                oops = (libraryOption == "ADD" || libraryOption == "QUIT" ||libraryOption == "LIST" || libraryOption == "SEARCH") ? "Y" : "N";
                 } while (oops != "Y");  
 
                 //ADD MOVIE TO MOVIES.CSV
@@ -50,6 +51,14 @@ namespace Mod4A6AMovieApp
                 //     movieManager.Add();
                 // }
                 //----------------------------------------------------------------------------
+
+                if (libraryOption.ToUpper() == "SEARCH")
+                {
+                    System.Console.Write("\nWhat media Title phrase would you like to search?: ");
+                    string phrase = Console.ReadLine().ToUpper();
+                    IMedia imedia = new Show();
+                    imedia.Search(phrase);
+                }
 
                 //LIST DIFFERENT MEDIAS
                 else if (libraryOption.ToUpper() == "LIST")
