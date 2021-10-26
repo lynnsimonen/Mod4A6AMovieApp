@@ -43,6 +43,7 @@ namespace Mod4A6AMovieApp
             do
             {
                 List <Movie> shortList = titles.Skip(skip).Take(take).ToList();
+                // .ForEach(s => Console.WriteLine(String.Format($"     {s.Title}")));
                 foreach (Movie movie in shortList)
                 {
                     Console.WriteLine(String.Format($"     {movie.Title}")); 
