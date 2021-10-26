@@ -38,14 +38,23 @@ namespace Mod4A6AMovieApp
             List <Movie> titles = movieManager.Movies.Where(m => m.Title.ToUpper().Contains(searchWord)).ToList();
             System.Console.WriteLine(string.Format($"\nMovie Library matches: ({titles.Count()})"));
             string listMore = "";
-            int start = 0; 
+            int skip = 0;
+            int take = 10;
             do
             {
-                for (int i = start; i < (start + 5); i++)
+                List <Movie> shortList = titles.Skip(skip).Take(take).ToList();
+                foreach (Movie movie in shortList)
                 {
-                Console.WriteLine("     " + titles[i].Title);
+                    Console.WriteLine(String.Format($"     {movie.Title}")); 
                 }
-                start += 5;
+                skip = skip+10;
+
+                // for (int i = start; i < (start + 5); i++)
+                // {
+                // Console.WriteLine("     " + titles[i].Title);
+                // }
+                // start += 5;
+
                 string oops5 = "";
                 do {
                 Console.WriteLine("\nWould you like to have more movies listed? Y/N");
@@ -53,6 +62,7 @@ namespace Mod4A6AMovieApp
                 oops5 = (listMore == "Y" || listMore == "N") ? "Y" : "N";
                 } while (oops5 != "Y");  
             } while (!(listMore == "N"));
+
         } 
         public string ListUtility()
         {

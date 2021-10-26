@@ -66,8 +66,9 @@ namespace Mod4A6AMovieApp
                             string phrase2 = phrase;
                             IMedia imedia2 = new Video();
                             imedia2.Search(phrase2);
+                            string phrase3 = phrase;
                             IMedia imedia3 = new Movie();
-                            imedia3.Search(phrase);
+                            imedia3.Search(phrase3);
                         }                    
                         oops5 = (phrase != "") ? "Y" : "N";
                     } while (oops != "Y");
