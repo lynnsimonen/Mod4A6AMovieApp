@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QoczW8Rsz6nMXCexSI6hLIAy9NrWlHdgcvMgYGJp+LwEIMt5KainNEzTmNdkxj8UE+4xHJGA2ptzp8+QVqbF/A==",
+  "dgSpecHash": "PFb40hedZxN9yyBkYpQn0/04UEEk4+oFGb6/htsG/dB/1hZlvXTo4Do5HJiwH3AlcKC7ckCL92Gjg7/NIJ1fzA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lynns\\Documents\\WCTC\\2021_Fall_dotnet\\Repositories\\Mod4A6AMovieApp\\Mod4A6AMovieApp.csproj",
   "expectedPackageFiles": [
@@ -91,8 +91,13 @@
     "C:\\Users\\lynns\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\lynns\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\lynns\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit\\2.4.1\\xunit.2.4.1.nupkg.sha512",
     "C:\\Users\\lynns\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
-    "C:\\Users\\lynns\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512"
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit.analyzers\\0.10.0\\xunit.analyzers.0.10.0.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit.assert\\2.4.1\\xunit.assert.2.4.1.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
+    "C:\\Users\\lynns\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512"
   ],
   "logs": []
 }

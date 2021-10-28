@@ -90,3 +90,5 @@ C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\bin\
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.csproj.CopyComplete
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\obj\Debug\net5.0\Mod4A6AMovieApp.genruntimeconfig.cache
 C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.assert.dll
+C:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\bin\Debug\net5.0\xunit.execution.dotnet.dll
