@@ -1,0 +1,5 @@
+c:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Movie_Test\obj\Debug\net5.0\Movie_Test.csproj.AssemblyReference.cache
+c:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Movie_Test\obj\Debug\net5.0\Movie_Test.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Movie_Test\obj\Debug\net5.0\Movie_Test.AssemblyInfoInputs.cache
+c:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Movie_Test\obj\Debug\net5.0\Movie_Test.AssemblyInfo.cs
+c:\Users\lynns\Documents\WCTC\2021_Fall_dotnet\Repositories\Mod4A6AMovieApp\Movie_Test\obj\Debug\net5.0\Movie_Test.csproj.CoreCompileInputs.cache
